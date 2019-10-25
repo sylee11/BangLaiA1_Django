@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Quizs',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,10 @@ ROOT_URLCONF = 'Quiz_A1_Django.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR + '/Quizs/frontends/',
+
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,8 +79,16 @@ WSGI_APPLICATION = 'Quiz_A1_Django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE' : 'sql_server.pyodbc',
+         # 'HOST': 'ADMIN\SQLEXPRESS',
+        'HOST' : 'localhost',
+        'USER' : 'sa',
+        'PASSWORD' : 'Anhkuteo12345',
+        'NAME' : 'quiz_A1',
+        'OPTIONS': {
+            # 'driver' : 'SQL Server Native Client 11.0',
+            'driver' : 'ODBC Driver 17 for SQL Server',
+        }
     }
 }
 
@@ -117,4 +129,4 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/statics/'
