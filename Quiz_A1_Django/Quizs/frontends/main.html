@@ -1,0 +1,49 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+	<div class="container-fluid">
+		<h3 class="text-center" style="margin: 50px;">THI SÁT HẠCH LÁI XE HẠNG A1 ONLINE</h3>
+		<div class="row" style="width: 90%; margin-left: 5%;">
+			<div class="col-4">
+				<div class="listQuestion">
+					<span>Câu hỏi</span>
+					<div class="row">
+						<div class="col-2"> <button class="btn btn-light">A</button></div>
+						<div class="col-2"> <button class="btn btn-light">A</button></div>
+						<div class="col-2"> <button class="btn btn-light">A</button></div>
+						<div class="col-2"> <button class="btn btn-light">A</button></div>
+						<div class="col-2"> <button class="btn btn-light">A</button></div>
+						<div class="col-2"> <button class="btn btn-light">A</button></div>
+					</div>	
+					<div class="row">
+						<div class="col-2"> <button class="btn btn-light">A</button></div>
+						<div class="col-2"> <button class="btn btn-light">A</button></div>
+						<div class="col-2"> <button class="btn btn-light">A</button></div>
+						<div class="col-2"> <button class="btn btn-light">A</button></div>
+						<div class="col-2"> <button class="btn btn-light">A</button></div>
+						<div class="col-2"> <button class="btn btn-light">A</button></div>
+					</div>	
+				</div>
+				<div>
+					Thời gian còn lại
+				</div>	
+				<div>
+					<button class="btn btn-info">Submit</button>
+				</div>	
+			</div>			
+			<div class="col-8">
+				<span>Câu hỏi 1:</span>
+				<span>“Vạch kẻ đường” được hiểu như thế nào là đúng?</span>
+				<div class="listAnser d-block">
+					<input type="checkbox" name="">  Vạch kẻ đường là vạch chỉ sự phân chia làn đường, vị trí hoặc hướng đi, vị trí dừng lại. <br>
+					<input type="checkbox" name="">  Vạch kẻ đường là vạch chỉ sự phân chia làn đường, vị trí hoặc hướng đi, vị trí dừng lại. <br>
+					<input type="checkbox" name="">  Vạch kẻ đường là vạch chỉ sự phân chia làn đường, vị trí hoặc hướng đi, vị trí dừng lại.
+				</div>
+				<div class="d-flex justify-content-between">
+					<button class="btn-info">Prev Question</button>
+					<button class="btn-info">Next Question</button>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

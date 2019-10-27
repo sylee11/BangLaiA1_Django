@@ -4,5 +4,6 @@ from django.conf.urls import url
 
 urlpatterns = [
 	path('', views_home.home ),
-	url(r'^home$', views_home.home, name = 'home'),	
+	url(r'^home$', views_home.home, name = 'home'),
+	url(r'^quiz$', views_home.main, name = 'main')	
 ]

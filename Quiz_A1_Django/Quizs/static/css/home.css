@@ -1,0 +1,66 @@
+body{
+	font-family: 'Prata', serif;
+}
+.imgLogo{
+	width: 50px;
+	height: 50px;
+	margin-left: 20px;
+	margin-right: 10px;
+}
+.imgBackgroud{
+	width: 85%;
+	height: 85%;
+}
+.title_home{
+	font-size: 35px;
+	font-weight: bold;
+}
+.body_content{
+	vertical-align: middle;
+
+}
+.footer{
+	overflow: hidden;
+	margin-left: 20px;
+}
+.footer i {
+	margin-right: 15px;
+/*	margin-bottom: 30px;
+*/}
+.inputEmail {
+	border: none;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 20px;
+	width: 80%;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+
+.inputEmail:focus {
+    outline: none;
+/*	border-bottom: 1px solid #ddd;
+	margin-bottom: 20px;
+	width: 80%;
+	margin-left: 15px;
+	margin-top: 15px;*/
+}
+.btnLogin {
+	border: none;
+	margin-bottom: 10px;
+	width: 50%;
+	margin-left: 25%;
+	background-color: #F783AC;
+	text-align: center;
+}
+.btnLogin:hover {
+	border: none;
+	width: 50%;
+	margin-left: 25%;
+	background-color: #F783AC;
+	text-align: center;
+	opacity: 0.6;
+}
+
+.listQuestion{
+	border: 1px solid black;
+}

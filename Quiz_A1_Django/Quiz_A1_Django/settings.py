@@ -79,15 +79,15 @@ WSGI_APPLICATION = 'Quiz_A1_Django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE' : 'sql_server.pyodbc',
-         # 'HOST': 'ADMIN\SQLEXPRESS',
+        # 'ENGINE' : 'sql_server.pyodbc',
+        'HOST': 'ADMIN\SQLEXPRESS',
         'HOST' : 'localhost',
         'USER' : 'sa',
         'PASSWORD' : 'Anhkuteo12345',
         'NAME' : 'quiz_A1',
         'OPTIONS': {
-            # 'driver' : 'SQL Server Native Client 11.0',
-            'driver' : 'ODBC Driver 17 for SQL Server',
+            'driver' : 'SQL Server Native Client 11.0',
+            # 'driver' : 'ODBC Driver 17 for SQL Server',
         }
     }
 }
@@ -130,3 +130,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/statics/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'statics')
+]

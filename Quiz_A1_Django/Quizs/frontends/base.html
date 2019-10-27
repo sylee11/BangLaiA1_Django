@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Home
+        </title>
+        {% load static %}
+        <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+        </link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Prata&display=swap&subset=vietnamese" rel="stylesheet">    
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css" integrity="sha256-bLNUHzSMEvxBhoysBE7EXYlIrmo7+n7F4oJra1IgOaM=" crossorigin="anonymous" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+    <body>
+    	<nav class="navbar navbar-expand-lg ">
+    		<img  class = "imgLogo" src="{% static 'images/logo2.png' %}"> <p class="align-middle font-weight-bold" style="color: #4481FC; ;">A1 ONLINE</p>
+    		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDrowp" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+		    	<span class="navbar-toggler-icon"></span>
+		  	</button>
+    		<div class="collapse navbar-collapse d-flex justify-content-end " id="navbarDrowp">
+				<ul  class="navbar-nav">
+    			<li class="nav-item">
+    				<a class="nav-link" href="#">Home</a>
+    			</li>    			
+    			<li class="nav-item">
+    				<a class="nav-link" href="#">About</a>    				
+    			</li>    			
+    			<li class="nav-item">
+    				<a class="nav-link" href="#"  class="btn btn-primary" data-toggle="modal" data-target="#modalLogin">Login</a>    				
+    			</li>    			
+    			<li class="nav-item">
+    				<a class="nav-link" href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalRegister">Register</a>    					
+    			</li>
+    			</ul>    			
+    		</div>
+    	</nav>
+    	{% block content %}
+    	{% endblock %}
+    	<div class="d-flex justify-content-center">
+    		<p class="text-center">&copy; 2019 lololo.com<p>
+    		<div class="footer">
+	    		<i class="fab fa-facebook fa-2x" style="color: #4267B2"></i>
+				<i class="fab fa-twitter fa-2x " style="color: #4267B2"></i>
+				<i class="fab fa-instagram fa-2x" style="color: #4267B2"></i>
+			</div>
+    	</div>
+
+    	<!-- Modal Login -->
+		<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-body">
+		      	<h4 class="text-center font-weight-bold" >Wellcome To Quiz A1 Online</h4>
+		      	<form method="post" id="" class="formLogin" id="formLogin"> 
+		      		{% csrf_token %}
+		      		<div class="text-center">
+		      			<i class="far fa-envelope"></i>
+		      			<input type="" name="email" class="inputEmail" placeholder="Email">
+		      		</div>
+		      		<div class="text-center">
+		      			<i class="fas fa-lock"></i>
+		      			<input type="password" name="password" class="inputEmail" placeholder="Password">
+		      		</div>
+		      		<button type="submit" class="btn btn-success btnLogin">Login</button>
+		      		<div class="text-center"> or</div>
+		      		<div class="text-center">
+		      			<button class="btn" type="button" style="background-color: #4267B2;color: white;width: 220px "> <i class="fab fa-facebook-square"></i>Login with Facebook</button>
+		      			<button class="btn" type="button" style="background-color: #DF4A32;color: white;width: 220px "><i class="fab fa-google-plus-square"></i>Login with Google</button>
+		      		</div>
+		      		<div class="text-center" style="margin-top: 10px;">Not a member? <a href="#" id="goModalLog">Register</a></div>
+		      	</form>
+		      </div>
+		    </div>
+		  </div>
+		</div>    	
+		<!-- Modal Register -->
+		<div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-body">
+		      	<h4 class="text-center font-weight-bold"> Register new User</h4>
+		      	<form method="post" id="" class="formRegister" id="formRegister"> 
+		      		{% csrf_token %}
+		      		<div class="text-center">
+		      			<i class="fas fa-user"></i>
+		      			<input type="text" name="name" class="inputEmail" placeholder="Full Name">
+		      		</div>
+		      		<div class="text-center">
+		      			<i class="fas fa-mars-stroke"></i>
+		      			<input type="text" name="gender" class="inputEmail" placeholder="Gender">
+		      		</div>
+		      		<div class="text-center">
+		      			<i class="fas fa-birthday-cake"></i>
+		      			<input type="" name="dateOfBirth" class="inputEmail" placeholder="Day of Birth" id="dateOfBirth">
+		      		</div>
+		      		<div class="text-center">
+		      			<i class="far fa-envelope"></i>
+		      			<input type="" name="email" class="inputEmail" placeholder="Email">
+		      		</div>
+		      		<div class="text-center">
+		      			<i class="fas fa-lock"></i>
+		      			<input type="password" name="password" class="inputEmail" placeholder="Password">
+		      		</div>
+		      		<button type="submit" class="btn btn-success btnLogin">Register</button>
+		      		<div class="text-center"> You have a account ? <a href="#" id="goModalRe">Login</a></div>
+		      	</form>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+        <script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+        </script>
+        <script crossorigin="anonymous" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+        </script>
+        <script crossorigin="anonymous" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+        </script>
+        <script
+		  src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
+		  integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="
+		  crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha256-bqVeqGdJ7h/lYPq6xrPv/YGzMEb6dNxlfiTUHSgRCp8=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{% static 'js/home.js'%}"></script>
+    </body> 
+</html>
