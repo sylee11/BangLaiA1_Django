@@ -5,5 +5,7 @@ from django.conf.urls import url
 urlpatterns = [
 	path('', views_home.home ),
 	url(r'^home$', views_home.home, name = 'home'),
-	url(r'^quiz$', views_home.main, name = 'main')	
+	url(r'^quiz$', views_home.main, name = 'main'),
+	url(r'^register$', views_auth.regigter, name='register'),	
+	url(r'^login2$', views_auth.login, name='login')	
 ]
