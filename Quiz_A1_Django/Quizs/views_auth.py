@@ -5,9 +5,9 @@ from django.contrib.auth import authenticate
 # Create your views here.
 
 def login(request):
-	user = authenticate(username='syle',password='123456')
+	user = authenticate(email='abcdef@gmail.com',password='123456')
 	print(user)
-	return HttpResponse("Hello")
+	return HttpResponse(user)
 
 
 def logout(request):

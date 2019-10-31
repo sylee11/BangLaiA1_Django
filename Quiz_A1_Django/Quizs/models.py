@@ -55,3 +55,31 @@ class MyUser(AbstractBaseUser):
 		"Is the user a member of staff?"
 		# Simplest possible answer: All admins are staff
 		return self.is_admin
+
+class Question(models.Model):
+	content = models.CharField(max_length=255)
+	anserFirst = models.CharField(max_length=255)
+	anserSecond = models.CharField(max_length=255)
+	anserThird = models.CharField(max_length=255)
+	anserFour = models.CharField(max_length=255, null = True)
+
+	def __str__(self):
+		return self.content
+
+class ImageQuestion(models.Model):
+	link = models.CharField(max_length=255)
+	idQuestion = models.OneToOneField(Question,on_delete=models.CASCADE)
+		
+	def __str__(self):
+		return self.link
+
+class Soccer(models.Model):
+	soccer = models.DecimalField(max_digits=10,decimal_places=0)
+	idUser = models.OneToOneField(MyUser,on_delete=models.CASCADE)
+	time = models.DecimalField(max_digits=10,decimal_places=0,null = True)
+		
+
+class Comment(models.Model):
+	idUser = models.ForeignKey(MyUser,on_delete=models.CASCADE)
+	comment = models.CharField(max_length=255)
+	rating = models.DecimalField(max_digits=10, decimal_places=0)	
