@@ -15,5 +15,13 @@ def logout(request):
 	user = MyUser.authenticate
 
 def regigter(request):
-	user = MyUser.objects.create_user('abcdef@gmail.com','namnk','123456')
-	return HttpResponse("Register done")
+	if request.method == 'POST':
+		strName = request.POST.get('name')
+		strGender = request.POST.get('gender')
+		strOld = request.POST.get('dateOfBirth')
+		strEmail = request.POST.get('email')
+		strPass = request.POST.get('password')
+		user = MyUser(strName,strGender,strOld,strEmail,strPass)
+		user.save()
+		user = MyUser.objects.create_user(strEmail,strName,strPass)
+		return HttpResponse("Register done")

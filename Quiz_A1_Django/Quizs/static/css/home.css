@@ -27,11 +27,11 @@ body{
 	margin-right: 15px;
 /*	margin-bottom: 30px;
 */}
-.inputEmail {
+.inputEmail  {
 	border: none;
 	border-bottom: 1px solid #ddd;
 	margin-bottom: 20px;
-	width: 80%;
+	width: 60%;
 	margin-left: 15px;
 	margin-top: 15px;
 }
