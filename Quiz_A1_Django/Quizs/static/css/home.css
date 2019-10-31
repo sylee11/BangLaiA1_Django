@@ -62,5 +62,36 @@ body{
 }
 
 .listQuestion{
-	border: 1px solid black;
+	padding: 20px;
 }
+.timeCount{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 20px;
+}
+.mainQuestion{
+	margin-bottom: 20px;
+	padding: 20px;
+}
+.mainQuestion input{
+	margin-top: 10px;
+	margin-left: 25px;
+}
+.mainQuestion img{
+	margin-left: 10%;
+	width: 80%;
+	height: 250px;
+}
+
+.buttonNextPrev{
+	margin-top: 20px;
+}
+
+.comment{
+	padding: 20px;
+	width: 60%;
+	margin-top: 50px;
+	margin-left: 20%;
+	margin-bottom: 100px;
+}
+
