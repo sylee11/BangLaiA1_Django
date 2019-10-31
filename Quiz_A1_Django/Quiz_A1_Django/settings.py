@@ -133,3 +133,5 @@ STATIC_URL = '/statics/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'statics')
 ]
+
+AUTH_USER_MODEL = 'Quizs.MyUser'
