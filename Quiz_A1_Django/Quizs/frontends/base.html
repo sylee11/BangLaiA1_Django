@@ -26,13 +26,27 @@
     			</li>    			
     			<li class="nav-item">
     				<a class="nav-link" href="#">About</a>    				
-    			</li>    			
-    			<li class="nav-item">
-    				<a class="nav-link" href="#"  class="btn btn-primary" data-toggle="modal" data-target="#modalLogin">Login</a>    				
-    			</li>    			
-    			<li class="nav-item">
-    				<a class="nav-link" href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalRegister">Register</a>    					
-    			</li>
+    			</li>    	
+    			{% if request.user.is_authenticated %}
+	    			<div class="dropdown">
+	    				<a class="nav-link dropdown-toggle" href="#"  class="btn btn-primary" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{request.user.name}}</a>    
+	    				<!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    					Dropdown button
+	    				</button> -->
+	    				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+	    					<a class="dropdown-item" href="#">Logout</a>
+<!-- 	    					<a class="dropdown-item" href="#">Another action</a>
+	    					<a class="dropdown-item" href="#">Something else here</a> -->
+	    				</div>
+	    			</div>
+    			{% else %}
+    				<li class="nav-item">
+    					<a class="nav-link" href="#"  class="btn btn-primary" data-toggle="modal" data-target="#modalLogin">Login</a>    				
+	    			</li>    			
+	    			<li class="nav-item">
+	    				<a class="nav-link" href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalRegister">Register</a>  
+	    			</li>
+    			{% endif%}
     			</ul>    			
     		</div>
     	</nav>
@@ -85,7 +99,7 @@
 		      		{% csrf_token %}
 		      		<div class="text-center">
 		      			<i class="far fa-envelope"></i>
-		      			<input type="" name="email" class="inputEmail" placeholder="Email" required="">
+		      			<input type="email" name="email" class="inputEmail" placeholder="Email" required="email">
 		      			<!-- <div class="inputEmail">{{form.email }} </div> -->
 
 		      		</div>
@@ -113,8 +127,8 @@
 		      			<i class="fas fa-mars-stroke"></i>
 		      			<!-- <input type="text" name="gender" class="inputEmail" placeholder="Gender"> -->
 		      			<div style="width: 60%;margin-left: 15px;color: #306977; margin-bottom: 10px;">
-		      				Male <input type="radio" name="gender" style="margin-right: 50px;">
-		      				Female <input type="radio" name="gender">
+		      				Male <input type="radio" name="gender" style="margin-right: 50px;" value="Male" required>
+		      				Female <input type="radio" name="gender" value="Female" required>
 		      			</div> 
 		      		</div>
 		      		<button type="submit" class="btn btn-success btnLogin">Register</button>

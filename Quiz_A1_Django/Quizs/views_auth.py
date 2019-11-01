@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from . models import MyUser
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate,login as log_in
 from django.db import models
 from  django.contrib.auth.hashers import make_password
 # Create your views here.
@@ -10,8 +10,11 @@ def login(request):
 	if request.method == 'POST':
 		strEmail = request.POST.get('email')
 		strPass = request.POST.get('password')
-	user = authenticate(email=strEmail,password=strPass)
-	return HttpResponse(user)
+		user = authenticate(request, email = strEmail, password=strPass)
+		if user is not None:
+			log_in(request,user)
+			return HttpResponseRedirect('/home')
+	return HttpResponse('user')
 
 
 def logout(request):
@@ -25,10 +28,14 @@ def regigter(request):
 		strOld = request.POST.get('dateOfBirth')
 		strEmail = request.POST.get('email')
 		strPass = request.POST.get('password')
-		user = MyUser(name = strName,gender = strGender,old=22,email=strEmail,password=make_password(strPass))
-		# user = MyUser.objects.create_user(strEmail,strName,strPass)
-		# user = MyUser
-		# user.gender = strGender
-		# user.old = 20
+		strPhone = request.POST.get('phoneNumber')
+
+		try:
+			MyUser.objects.get(email = strEmail)
+			return HttpResponse('User has exists!!')
+		except Exception as e:
+			raise e
+
+		user = MyUser(name = strName,gender = strGender,old=22,email=strEmail,password=make_password(strPass),phoneNumber=strPhone)
 		user.save()
-		return HttpResponse("Register done")
+		return render(request, 'home.html',{'message': 'Register susscessfull !!!'})

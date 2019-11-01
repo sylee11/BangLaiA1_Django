@@ -5,6 +5,7 @@ from . forms import MyUserForm
 
 def home(request):
 	formLogin = MyUserForm
+	print(request.user)
 	return render(request, 'home.html',{'form': formLogin})
 
 def main(request):

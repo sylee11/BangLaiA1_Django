@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import ( BaseUserManager, AbstractBaseUser)
+from .validator import validate_phone
 
 #Create your models here.
 
@@ -29,7 +30,7 @@ class MyUser(AbstractBaseUser):
 		unique = True,
 		)
 	name = models.CharField(max_length =255)
-	phoneNumber = models.DecimalField(max_digits=13,decimal_places=0,null=True)
+	phoneNumber = models.DecimalField(max_digits=13,decimal_places=0,null=True,validators= [validate_phone])
 	gender = models.CharField(max_length=255,null=True)
 	old = models.DecimalField(max_digits=2,decimal_places=0,null=True)
 
