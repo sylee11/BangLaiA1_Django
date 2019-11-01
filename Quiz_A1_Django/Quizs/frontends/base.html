@@ -53,7 +53,7 @@
 		    <div class="modal-content">
 		      <div class="modal-body">
 		      	<h4 class="text-center font-weight-bold" >Wellcome To Quiz A1 Online</h4>
-		      	<form method="post" id="" class="formLogin" id="formLogin"> 
+		      	<form method="post" id="" class="formLogin" id="formLogin" action="{% url 'login'%}"> 
 		      		{% csrf_token %}
 		      		<div class="text-center">
 		      			<i class="far fa-envelope"></i>
@@ -84,24 +84,6 @@
 		      	<form method="post" id="" class="formRegister" id="formRegister" action="{% url 'register' %}"> 
 		      		{% csrf_token %}
 		      		<div class="text-center">
-		      			<i class="fas fa-user"></i>
-		      			<input type="text" name="name" class="inputEmail" placeholder="Full Name" required="">
-		      			<!-- <div class="inputEmail">{{form.name }} </div> -->
-		      			
-		      		</div>
-		      		<div class="d-flex justify-content-center">
-		      			<i class="fas fa-mars-stroke"></i>
-		      			<!-- <input type="text" name="gender" class="inputEmail" placeholder="Gender"> -->
-		      			<div style="width: 60%;margin-left: 15px;color: #306977">
-		      				Male <input type="radio" name="gender" style="margin-right: 50px;">
-		      				Female <input type="radio" name="gender">
-		      			</div> 
-		      		</div>
-		      		<div class="text-center">
-		      			<i class="fas fa-birthday-cake"></i>
-		      			<input type="" name="dateOfBirth" class="inputEmail" placeholder="Day of Birth" id="dateOfBirth" required="">
-		      		</div>
-		      		<div class="text-center">
 		      			<i class="far fa-envelope"></i>
 		      			<input type="" name="email" class="inputEmail" placeholder="Email" required="">
 		      			<!-- <div class="inputEmail">{{form.email }} </div> -->
@@ -110,6 +92,30 @@
 		      		<div class="text-center">
 		      			<i class="fas fa-lock"></i>
 		      			<input type="password" name="password" class="inputEmail" placeholder="Password" required="">
+		      		</div>
+		      		<div class="text-center">
+		      			<i class="fas fa-user"></i>
+		      			<input type="text" name="name" class="inputEmail" placeholder="Full Name" required="">
+		      			<!-- <div class="inputEmail">{{form.name }} </div> -->
+		      			
+		      		</div>
+		      		<div class="text-center">
+		      			<i class="fas fa-phone"></i>
+		      			<input type="text" name="phoneNumber" class="inputEmail" placeholder="Phone Number" required="">
+		      			<!-- <div class="inputEmail">{{form.name }} </div> -->
+		      			
+		      		</div>
+		      		<div class="text-center">
+		      			<i class="fas fa-birthday-cake"></i>
+		      			<input type="" name="dateOfBirth" class="inputEmail" placeholder="Day of Birth" id="dateOfBirth" required="">
+		      		</div>
+		      		<div class="d-flex justify-content-center">
+		      			<i class="fas fa-mars-stroke"></i>
+		      			<!-- <input type="text" name="gender" class="inputEmail" placeholder="Gender"> -->
+		      			<div style="width: 60%;margin-left: 15px;color: #306977; margin-bottom: 10px;">
+		      				Male <input type="radio" name="gender" style="margin-right: 50px;">
+		      				Female <input type="radio" name="gender">
+		      			</div> 
 		      		</div>
 		      		<button type="submit" class="btn btn-success btnLogin">Register</button>
 		      		<div class="text-center"> You have a account ? <a href="#" id="goModalRe">Login</a></div>
