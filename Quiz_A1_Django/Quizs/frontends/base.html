@@ -34,7 +34,7 @@
 	    					Dropdown button
 	    				</button> -->
 	    				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-	    					<a class="dropdown-item" href="#">Logout</a>
+	    					<a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
 <!-- 	    					<a class="dropdown-item" href="#">Another action</a>
 	    					<a class="dropdown-item" href="#">Something else here</a> -->
 	    				</div>
@@ -62,6 +62,7 @@
     	</div>
 
     	<!-- Modal Login -->
+    	<input type="" name="" id="inputError" value="{{ messageError }}">
 		<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
@@ -69,6 +70,9 @@
 		      	<h4 class="text-center font-weight-bold" >Wellcome To Quiz A1 Online</h4>
 		      	<form method="post" id="" class="formLogin" id="formLogin" action="{% url 'login'%}"> 
 		      		{% csrf_token %}
+		      		{% if messageError == 'UserLoginFail'%}
+		      			<div class="text-center messageError" style="color: red;">Email or password is correct !!</div>
+		      		{% endif %}
 		      		<div class="text-center">
 		      			<i class="far fa-envelope"></i>
 		      			<input type="" name="email" class="inputEmail" placeholder="Email">
@@ -97,6 +101,9 @@
 		      	<h4 class="text-center font-weight-bold"> Register new User</h4>
 		      	<form method="post" id="" class="formRegister" id="formRegister" action="{% url 'register' %}"> 
 		      		{% csrf_token %}
+		      		{% if messageError == 'User has exists'%}
+		      			<div class="text-center messageError" style="color: red;">User has exists !!</div>
+		      		{% endif %}
 		      		<div class="text-center">
 		      			<i class="far fa-envelope"></i>
 		      			<input type="email" name="email" class="inputEmail" placeholder="Email" required="email">

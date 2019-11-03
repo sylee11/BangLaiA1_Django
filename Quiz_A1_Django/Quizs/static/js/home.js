@@ -1,21 +1,38 @@
 $(document).ready(function(){
 	$('#goModalRe').click(function(){
-		// $('#formRegister').trigger("reset");
-		// $('#formLogin').trigger("reset");
-		// $('#formRegister')[0].reset()
-		// $('#formLogin')[0].reset()
 		$('#modalRegister').modal('hide')
 		$('#modalLogin').modal('show')
 	})
 
 	$('#goModalLog').click(function(){
-		// console.log($('#formRegister')[0])
-		// $('#formRegister')[0].reset()
-		// $('#formLogin')[0].reset()
 		$('#modalRegister').modal('show')
 		$('#modalLogin').modal('hide')
 	})
 
+	//Clear input
+	$('.inputEmail').click(function(){
+		$('.messageError').hide()
+
+	})
+
+
 	$('#dateOfBirth').datepicker({
 	});
+
+	//show erro
+	valError = $('#inputError').val()
+	if(valError == 'UserLoginFail'){
+		alert('chi')
+		$('#modalRegister').modal('hide')
+		$('#modalLogin').modal('show')
+	}
+	else if(valError == 'User has exists'){
+		$('#modalRegister').modal('show')
+		$('#modalLogin').modal('hide')
+	}	
+	else if(valError == 'requireLogin'){
+		$('#modalRegister').modal('hide')
+		$('#modalLogin').modal('show')
+	}
+
 })
