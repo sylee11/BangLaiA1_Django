@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from . models import MyUser
-from django.contrib.auth import authenticate,login as log_in
+from django.contrib.auth import authenticate,login as log_in, logout as log_out
 from django.db import models
 from  django.contrib.auth.hashers import make_password
 # Create your views here.
@@ -14,13 +14,14 @@ def login(request):
 		if user is not None:
 			log_in(request,user)
 			return HttpResponseRedirect('/home')
-	return HttpResponse('user')
+		else:
+			return render(request, 'home.html', {'messageError': 'UserLoginFail'})
+	return render(request, 'home.html', {'messageError' : 'requireLogin'})
 
 
 def logout(request):
-	return HttpResponse("Hello")
-	user = MyUser.authenticate
-
+	log_out(request)
+	return HttpResponseRedirect('/home')
 def regigter(request):
 	if request.method == 'POST':
 		strName = request.POST.get('name')
@@ -32,8 +33,9 @@ def regigter(request):
 
 		try:
 			MyUser.objects.get(email = strEmail)
-			return HttpResponse('User has exists!!')
+			return render(request, 'home.html',{'messageError': 'User has exists'})
 		except Exception as e:
+			print("exists")
 			raise e
 
 		user = MyUser(name = strName,gender = strGender,old=22,email=strEmail,password=make_password(strPass),phoneNumber=strPhone)
