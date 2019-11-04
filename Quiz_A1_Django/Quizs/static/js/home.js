@@ -39,14 +39,5 @@ $(document).ready(function(){
 	}
 
 
-	$('#btnStart').click(function(){
-		alert("zzz")
-
-	})
-	$('#btnSubmit').click(function(){
-		alert("zzz")
-
-	})
-
 
 })

@@ -17,8 +17,17 @@ def main(request):
 	print(type(listQuestionRaw))
 	# listQuestion = [list(x) for x in listQuestionRaw]
 	for index,item in enumerate(listQuestionRaw, start=0):
-		listTemp = [item.content, item.anserFirst, item.anserSecond, item.anserThird, item.anserFour,item.anser,item.id,index]
+		listTemp = [item.content, item.anserFirst, item.anserSecond, item.anserThird, item.anserFour,item.anser,item.id,index,item.link]
 		listQuestion.append(listTemp)
 	print(listQuestion)
 	print(type(listQuestion))
 	return render(request, 'main.html',{'listQuestion' :listQuestion})
+
+	if request.method == "POST":
+		return render(request, 'main.html',{'listQuestion' :listQuestion})
+
+@login_required()
+def examp(request):
+
+	return render(request, 'main,html',{})
+	pass

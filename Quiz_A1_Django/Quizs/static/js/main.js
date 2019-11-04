@@ -32,11 +32,17 @@ $(document).ready(function() {
 		alert(a.value)
 	}
 
+	$('#btnSubmit').click(function(){
+		alert($('#valueAnser').val())
+
+	})
+
 	$('.btnNext').click(function(){
 		var checkQuesionNum = $('#inputIndex').val()
 		if(checkQuesionNum == 9){
 			$('.9').css('display','none')
 			$('.0').css('display','block')
+			// $('#btnNum0').css('background-color','green')
 			// var tempClass3 = '#inputValueQuestion'+checkQuesionNum
 			// $(tempClass3).val($('#valueAnser').val())
 			$('#inputIndex').val(0)
@@ -69,6 +75,8 @@ $(document).ready(function() {
 			if (dis < 0){
 				clearInterval(x)
 				$(".spanCountDown").text("Hết giờ")
+				alert("Đã hết giờ làm bài !!")		
+
 			}
 		},1000)
 
