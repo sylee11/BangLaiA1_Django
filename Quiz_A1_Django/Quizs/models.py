@@ -63,6 +63,7 @@ class Question(models.Model):
 	anserSecond = models.CharField(max_length=255)
 	anserThird = models.CharField(max_length=255)
 	anserFour = models.CharField(max_length=255, null = True)
+	anser = models.CharField(max_length=255)
 
 	def __str__(self):
 		return self.content

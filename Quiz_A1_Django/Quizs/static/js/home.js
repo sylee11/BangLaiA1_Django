@@ -1,4 +1,8 @@
 $(document).ready(function(){
+	function abc(a){
+		alert(a.value)
+	}
+
 	$('#goModalRe').click(function(){
 		$('#modalRegister').modal('hide')
 		$('#modalLogin').modal('show')
@@ -22,7 +26,6 @@ $(document).ready(function(){
 	//show erro
 	valError = $('#inputError').val()
 	if(valError == 'UserLoginFail'){
-		alert('chi')
 		$('#modalRegister').modal('hide')
 		$('#modalLogin').modal('show')
 	}
@@ -34,5 +37,16 @@ $(document).ready(function(){
 		$('#modalRegister').modal('hide')
 		$('#modalLogin').modal('show')
 	}
+
+
+	$('#btnStart').click(function(){
+		alert("zzz")
+
+	})
+	$('#btnSubmit').click(function(){
+		alert("zzz")
+
+	})
+
 
 })
