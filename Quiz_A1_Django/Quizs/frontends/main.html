@@ -7,50 +7,44 @@
 			<div class="col-4">
 				<div class="listQuestion border border-primary rounded">
 					<span >Câu hỏi</span>
-					<div class="row">
-						<div class="col-2"> <button class="btn btn-light">A</button></div>
-						<div class="col-2"> <button class="btn btn-light">A</button></div>
-						<div class="col-2"> <button class="btn btn-light">A</button></div>
-						<div class="col-2"> <button class="btn btn-light">A</button></div>
-						<div class="col-2"> <button class="btn btn-light">A</button></div>
-						<div class="col-2"> <button class="btn btn-light">A</button></div>
-					</div>	
-					<div class="row">
-						<div class="col-2"> <button class="btn btn-light">A</button></div>
-						<div class="col-2"> <button class="btn btn-light">A</button></div>
-						<div class="col-2"> <button class="btn btn-light">A</button></div>
-						<div class="col-2"> <button class="btn btn-light">A</button></div>
-						<div class="col-2"> <button class="btn btn-light">A</button></div>
-						<div class="col-2"> <button class="btn btn-light">A</button></div>
+					<div class="row text-center">
+						{% for listQ in listQuestion %}
+							<div class="col-2 btnNum"> <button id="btnNum2" class="btn btn-outline-info" value="{{listQ.7}}">{{listQ.7}}</button></div>
+						{% endfor %}
 					</div>	
 				</div>
 				<div class="border border-primary rounded timeCount">
-					Thời gian còn lại
+					Thời gian còn lại <span class="spanCountDown"></span>
 				</div>	
 				<div class="border border-primary rounded timeCount text-center">
-					<button class="btn btn-info">Submit</button>
+					<button class="btn btn-info" id="btnSubmit">Submit</button>
 				</div>	
-			</div>			
-			<div class="col-8 border border-primary rounded mainQuestion">
-				<span style="color: #138496; font-weight: bold;">Câu hỏi :</span>  <br>
-				<span class="font-weight-bold">“Vạch kẻ đường” được hiểu như thế nào là đúng?</span><br>
-				<img src="http://truongdaylaixeoto.net/wp-content/uploads/2017/04/150-cau-hoi-thi-bang-lai-xe-may-a1-phan-2-bien-bao.jpg" alt="imgQuestion">
-				<div class="listAnser d-block">
-					<input type="checkbox" name="">  Vạch kẻ đường là vạch chỉ sự phân chia làn đường, vị trí hoặc hướng đi, vị trí dừng lại. <br>
-					<input type="checkbox" name="">  Vạch kẻ đường là vạch chỉ sự phân chia làn đường, vị trí hoặc hướng đi, vị trí dừng lại. <br>
-					<input type="checkbox" name="">  Vạch kẻ đường là vạch chỉ sự phân chia làn đường, vị trí hoặc hướng đi, vị trí dừng lại.
-				</div>
-				<div class="d-flex justify-content-between buttonNextPrev">
-					<button class="btn btn-info">Prev Question</button>
-					<button class="btn btn-info">Next Question</button>
-				</div>
 			</div>
+			{% for listQ in listQuestion %}
+				<div class="col-8 border border-primary rounded mainQuestion {{listQ.7}} ">
+					<input type="" name="" value="{{ listQ.6 }}" id="inputIdQuestion" class="d-none">
+					<input type="" name="" value="{{ listQ.7 }}" id="inputIndex" class="d-none">
+					<input type="" name="" value="" id="inputValueQuestion{{listQ.7}}" class="d-none">
+					<span style="color: #138496; font-weight: bold;">Câu hỏi :{{ listQ.7}} </span>  <br>
+					<span class="font-weight-bold">{{ listQ.0 }}</span><br>
+					<!-- <img src="http://truongdaylaixeoto.net/wp-content/uploads/2017/04/150-cau-hoi-thi-bang-lai-xe-may-a1-phan-2-bien-bao.jpg" alt="imgQuestion"> -->
+					<div class="listAnser d-block">
+						<input type="checkbox" name="valueAnser">  {{ listQ.1 }} <br>
+						<input type="checkbox" name="valueAnser">  {{ listQ.2 }} <br>
+						<input type="checkbox" name="valueAnser">  {{ listQ.3 }}
+					</div>
+					<div class="d-flex justify-content-between buttonNextPrev">
+						<button class="btn btn-info btnPrev">Prev Question</button>
+						<button class="btn btn-info btnNext">Next Question</button>
+					</div>
+				</div>		
+			{% endfor %}	
 		</div>
 		<div class="border border-info rounded comment">
 			<span>200 Bình luận</span><br>
 			<span>Sắp xếp theo:</span> 
-			<input type="radio" name="new">  <label for="new">Mới Nhất</label>  
-			<input type="radio" name="like">  <label for="new">Nhiều Like</label>  
+			<input type="radio" name="new" >  <label for="new">Mới Nhất</label>  
+			<input type="radio" name="new">  <label for="new">Nhiều Like</label>  
 			<div class="row">
 				<div class="col-1">
 					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmYxBq3_IN4hEMn0u6Ql_BAPdCUUGYT_uC9Q0kUYQ4o7BYGLMx&s" alt="avatar"  style="width: 50px; height: 50px; border-radius:50%; ">
@@ -64,4 +58,6 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="{% static 'js/main.js'%}" async></script>
+
 {% endblock %}

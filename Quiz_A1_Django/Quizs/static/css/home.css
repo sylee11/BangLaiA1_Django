@@ -72,6 +72,7 @@ body{
 .mainQuestion{
 	margin-bottom: 20px;
 	padding: 20px;
+	display: none;
 }
 .mainQuestion input{
 	margin-top: 10px;
@@ -93,5 +94,15 @@ body{
 	margin-top: 50px;
 	margin-left: 20%;
 	margin-bottom: 100px;
+}
+
+
+.btnNum{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.btnNum2:focus{
+	background-color: green;
+	color: green;
 }
 
