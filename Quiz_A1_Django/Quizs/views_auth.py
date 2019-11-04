@@ -32,12 +32,10 @@ def regigter(request):
 		strPhone = request.POST.get('phoneNumber')
 
 		try:
-			MyUser.objects.get(email = strEmail)
+			checkUser = MyUser.objects.filter(email = strEmail)
 			return render(request, 'home.html',{'messageError': 'User has exists'})
 		except Exception as e:
-			print("exists")
-			raise e
-
-		user = MyUser(name = strName,gender = strGender,old=22,email=strEmail,password=make_password(strPass),phoneNumber=strPhone)
-		user.save()
+			user = MyUser(name = strName,gender = strGender,old=22,email=strEmail,password=make_password(strPass),phoneNumber=strPhone)
+			user.save()
+			
 		return render(request, 'home.html',{'message': 'Register susscessfull !!!'})

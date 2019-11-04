@@ -9,7 +9,7 @@
 					<span >Câu hỏi</span>
 					<div class="row text-center">
 						{% for listQ in listQuestion %}
-							<div class="col-2 btnNum"> <button id="btnNum2" class="btn btn-outline-info" value="{{listQ.7}}">{{listQ.7}}</button></div>
+							<div class="col-2 btnNum"> <button id="btnNum{{listQ.7}}" class="btn btn-outline-info" value="{{listQ.7}}">{{listQ.7}}</button></div>
 						{% endfor %}
 					</div>	
 				</div>
@@ -17,11 +17,14 @@
 					Thời gian còn lại <span class="spanCountDown"></span>
 				</div>	
 				<div class="border border-primary rounded timeCount text-center">
-					<button class="btn btn-info" id="btnSubmit">Submit</button>
+					<button class="btn btn-info" id="btnSubmit" type="Submit" form="formMain">Submit</button>
 				</div>	
 			</div>
+			<form method="POST" action="{% url 'main'%}" id="formMain" class="col-8 border border-primary rounded">
+			{% csrf_token %}
 			{% for listQ in listQuestion %}
-				<div class="col-8 border border-primary rounded mainQuestion {{listQ.7}} ">
+				
+				<div class="mainQuestion {{listQ.7}} ">
 					<input type="" name="" value="{{ listQ.6 }}" id="inputIdQuestion" class="d-none">
 					<input type="" name="" value="{{ listQ.7 }}" id="inputIndex" class="d-none">
 					<input type="" name="" value="" id="inputValueQuestion{{listQ.7}}" class="d-none">
@@ -29,16 +32,18 @@
 					<span class="font-weight-bold">{{ listQ.0 }}</span><br>
 					<!-- <img src="http://truongdaylaixeoto.net/wp-content/uploads/2017/04/150-cau-hoi-thi-bang-lai-xe-may-a1-phan-2-bien-bao.jpg" alt="imgQuestion"> -->
 					<div class="listAnser d-block">
-						<input type="checkbox" name="valueAnser">  {{ listQ.1 }} <br>
-						<input type="checkbox" name="valueAnser">  {{ listQ.2 }} <br>
-						<input type="checkbox" name="valueAnser">  {{ listQ.3 }}
+						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="1">  {{ listQ.1 }} <br>
+						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="2">  {{ listQ.2 }} <br>
+						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="3">  {{ listQ.3 }}
 					</div>
 					<div class="d-flex justify-content-between buttonNextPrev">
-						<button class="btn btn-info btnPrev">Prev Question</button>
-						<button class="btn btn-info btnNext">Next Question</button>
+						<button class="btn btn-info btnPrev" type="button">Prev Question</button>
+						<button class="btn btn-info btnNext" type="button">Next Question</button>
 					</div>
-				</div>		
-			{% endfor %}	
+				</div>
+					
+			{% endfor %}
+			</form>		
 		</div>
 		<div class="border border-info rounded comment">
 			<span>200 Bình luận</span><br>
