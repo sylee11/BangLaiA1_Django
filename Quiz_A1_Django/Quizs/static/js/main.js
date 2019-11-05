@@ -37,6 +37,8 @@ $(document).ready(function() {
 
 	})
 
+
+
 	$('.btnNext').click(function(){
 		var checkQuesionNum = $('#inputIndex').val()
 		if(checkQuesionNum == 9){

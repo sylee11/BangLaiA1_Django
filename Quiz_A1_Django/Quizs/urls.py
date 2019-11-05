@@ -10,5 +10,6 @@ urlpatterns = [
 	url(r'^register$', views_auth.regigter, name='register'),	
 	url(r'^login$', views_auth.login, name='login'),
 	url(r'^logout$', views_auth.logout, name='logout'),
-	url(r'^examp$', views_home.examp, name='examp')	
+	url(r'^examp$', views_home.examp, name='examp'),
+	url(r'^comment$', views_cmt.rating, name='rating')
 ]
