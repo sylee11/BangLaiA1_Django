@@ -9,7 +9,7 @@
 					<span >Câu hỏi</span>
 					<div class="row text-center">
 						{% for listQ in listQuestion %}
-							<div class="col-2 btnNum"> <button id="btnNum{{listQ.7}}" class="btn btn-outline-info" value="{{listQ.7}}">{{forloop.counter}}</button></div>
+							<div class="col-2 btnNum"> <button id="btnNum{{forloop.counter}}" class="btn btn-outline-info" value="{{listQ.7}}">{{forloop.counter}}</button></div>
 						{% endfor %}
 					</div>	
 				</div>
@@ -20,7 +20,7 @@
 					<button class="btn btn-info" id="btnSubmit" type="submit" form="formMain">Submit</button>
 				</div>	
 			</div>
-			<form method="POST" action="{% url 'main'%}" id="formMain" class="col-8 border border-primary rounded">
+			<form method="POST" action="{% url 'examp'%}" id="formMain" class="col-8 border border-primary rounded">
 			{% csrf_token %}
 			{% for listQ in listQuestion %}
 				<div class="mainQuestion {{forloop.counter}} ">
@@ -67,17 +67,6 @@
 				</div>
 
 			{% endfor%}
-<!-- 			<div class="row" >
-				<div class="col-1">
-					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmYxBq3_IN4hEMn0u6Ql_BAPdCUUGYT_uC9Q0kUYQ4o7BYGLMx&s" alt="avatar"  style="width: 50px; height: 50px; border-radius:50%; ">
-				</div>
-				<div class="col-11">
-					<span>Name</span><br>
-					<span>This is new comment</span><br>
-					<span style="font-size: 12px; font-weight:inherit;color:#138496  ">20/11/2019</span><a style="font-size: 12px;margin-left: 20px; " href="#">like</a> <i style="color: blue" class="fas fa-thumbs-up"></i>
-				</div>
-				
-			</div> -->
 			</div>
 			<div class="row">
 				<div class="col-1">
