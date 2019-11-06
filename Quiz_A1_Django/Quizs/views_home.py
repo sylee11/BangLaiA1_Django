@@ -26,7 +26,7 @@ def main(request):
 	# return render(request, 'main.html',{'listQuestion' :listQuestion, 'listComment':listComment})
 	# if request.method == "POST":
 	# 	return render(request, 'main.html',{'listQuestion' :listQuestion})
-	listQuestionRaw = Question.objects.raw('SELECT TOP 10 tb.*,us.link from dbo.Quizs_question as tb Left Join dbo.Quizs_imagequestion as us on tb.id = us.idQuestion_id')
+	listQuestionRaw = Question.objects.raw('SELECT TOP 20 tb.*,us.link from dbo.Quizs_question as tb Left Join dbo.Quizs_imagequestion as us on tb.id = us.idQuestion_id')
 	# listQuestionRaw = Question.objects.select_related('idQuestion').all()
 	print(list(listQuestionRaw))
 	listQuestion2 = list(listQuestionRaw)
@@ -39,5 +39,4 @@ def main(request):
 @login_required()
 def examp(request):
 
-	return render(request, 'main,html',{})
-	pass
+	return render(request, 'exam.html',{})

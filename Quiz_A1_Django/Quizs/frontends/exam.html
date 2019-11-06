@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+	<div class="container-fluid">
+		<h3 class="text-center"> KẾT QUẢ THI</h3>
+		<div class="row">
+			<div class="row" style="width: 90%; margin-left: 5%;">
+			<div class="col-4">
+				<div class="listQuestion border border-primary rounded">
+					<span >Câu hỏi</span>
+					<div class="row text-center">
+					</div>	
+				</div>
+				<div class="border border-primary rounded timeCount">
+					Thời gian làm bài: <span class="spanCountDown"></span>
+				</div>	
+				<div class="border border-primary rounded timeCount text-center">
+					<button class="btn btn-info" id="btnSubmit" type="submit" form="formMain">Submit</button>
+				</div>	
+			</div>
+			<form method="POST" action="{% url 'examp'%}" id="formMain" class="col-8 border border-primary rounded">
+			{% csrf_token %}
+			{% for listQ in listQuestion %}
+				<div class="mainQuestion {{forloop.counter}} ">
+					<input type="" name="" value="{{ listQ.id }}" id="inputIdQuestion" class="d-none">
+					<input type="" name="" value="{{forloop.counter}}" id="inputIndex" class="d-none">
+					<input type="" name="" value="" id="inputValueQuestion{{listQ.7}}" class="d-none">
+					<span style="color: #138496; font-weight: bold;">Câu hỏi :{{forloop.counter}} </span>  <br>
+					<span class="font-weight-bold">{{ listQ.content }}</span><br>
+					{% if listQ.link is not None %}
+						<img src="/statics/{{ listQ.link }}" alt="imgQuestion">
+					{% endif%}
+					
+					<div class="listAnser d-block">
+						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="1">  {{ listQ.anserFirst }} <br>
+						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="2">  {{ listQ.anserSecond }} <br>
+						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="3">  {{ listQ.anserThird }}
+					</div>
+					<div class="d-flex justify-content-between buttonNextPrev">
+						<button class="btn btn-info btnPrev" type="button">Prev Question</button>
+						<button class="btn btn-info btnNext" type="button">Next Question</button>
+					</div>
+				</div>
+					
+			{% endfor %}
+			</form>		
+			</div>
+			<div class="col-9">
+				
+			</div>
+		</div>
+	</div>
+{% endblock%}

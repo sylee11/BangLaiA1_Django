@@ -12,17 +12,27 @@ $(document).ready(function() {
 	$('.btnPrev').click(function(){
 		var checkQuesionNum = $('#inputIndex').val()
 		if(checkQuesionNum == 1){
-			$('.10').css('display','block')
+			$('.20').css('display','block')
 			$('.1').css('display','none')
-			$('#inputIndex').val(10)
+			$('#btnNum20').css('background-color','#138496')
+			$('#btnNum20').css('color','white')			
+			$('#btnNum1').css('background-color','white')
+			$('#btnNum1').css('color','#138496')
+			$('#inputIndex').val(20)
 
 		}
 		else{
 			var tempClass = '.'+checkQuesionNum
 			$(tempClass).css('display','none')
+			var temClass4 = '#btnNum'+checkQuesionNum
+			$(temClass4).css('background-color','white')
+			$(temClass4).css('color','#138496')
 			checkQuesionNum = Number(checkQuesionNum)-1
 			var tempClass2 = '.'+checkQuesionNum
 			$(tempClass2).css('display','block')
+			var temClass3 = '#btnNum'+checkQuesionNum
+			$(temClass3).css('background-color','#138496')
+			$(temClass3).css('color','white')
 			$('#inputIndex').val(checkQuesionNum)		
 		}
 
@@ -41,21 +51,28 @@ $(document).ready(function() {
 
 	$('.btnNext').click(function(){
 		var checkQuesionNum = $('#inputIndex').val()
-		if(checkQuesionNum == 10){
-			$('.10').css('display','none')
+		if(checkQuesionNum == 20){
+			$('.20').css('display','none')
 			$('.1').css('display','block')
-			// $('#btnNum0').css('background-color','green')
-			// var tempClass3 = '#inputValueQuestion'+checkQuesionNum
-			// $(tempClass3).val($('#valueAnser').val())
+			$('#btnNum1').css('background-color','#138496')
+			$('#btnNum1').css('color','white')			
+			$('#btnNum20').css('background-color','white')
+			$('#btnNum20').css('color','#138496')
 			$('#inputIndex').val(1)
 
 		}
 		else{
 			var tempClass = '.'+checkQuesionNum
 			$(tempClass).css('display','none')
+			var temClass4 = '#btnNum'+checkQuesionNum
+			$(temClass4).css('background-color','white')
+			$(temClass4).css('color','#138496')
 			checkQuesionNum = Number(checkQuesionNum)+1
 			var tempClass2 = '.'+checkQuesionNum
 			$(tempClass2).css('display','block')
+			var temClass3 = '#btnNum'+checkQuesionNum
+			$(temClass3).css('background-color','#138496')
+			$(temClass3).css('color','white')
 			$('#inputIndex').val(checkQuesionNum)
 		}
 	})
