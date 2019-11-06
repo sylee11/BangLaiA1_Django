@@ -11,23 +11,30 @@ def home(request):
 
 @login_required()
 def main(request):
-	listQuestionRaw = Question.objects.all().select_related('imagequestion')
+	# listQuestionRaw = ImageQuestion.objects.select_related('idQuestion').filter(Question = Question_id)
+	# # listQuestionRaw = Question.objects.select_related('idQuestion').all()
 
-	listQuestion = []
+	# listQuestion = []
+	# listQuestion2 = list(listQuestionRaw)
+	# # listQuestion = [list(x) for x in listQuestionRaw]
+	# for index,item in enumerate(listQuestionRaw, start=0):
+	# 	print(item)
+	# 	listTemp = [item.idQuestion.content, item.idQuestion.anserFirst, item.idQuestion.anserSecond, item.idQuestion.anserThird, item.idQuestion.anserFour,item.idQuestion.anser,item.idQuestion.id,index,item.link]
+	# 	listQuestion.append(listTemp)
+	# listComment = list(Comment.objects.order_by('-id')[:10].select_related('idUser'))
+	# print(listComment)
+	# return render(request, 'main.html',{'listQuestion' :listQuestion, 'listComment':listComment})
+	# if request.method == "POST":
+	# 	return render(request, 'main.html',{'listQuestion' :listQuestion})
+	listQuestionRaw = Question.objects.raw('SELECT TOP 10 tb.*,us.link from dbo.Quizs_question as tb Left Join dbo.Quizs_imagequestion as us on tb.id = us.idQuestion_id')
+	# listQuestionRaw = Question.objects.select_related('idQuestion').all()
+	print(list(listQuestionRaw))
 	listQuestion2 = list(listQuestionRaw)
-	# listQuestion = [list(x) for x in listQuestionRaw]
-	for index,item in enumerate(listQuestionRaw, start=0):
-		# print(item.imagequestion.link)
-		listTemp = [item.content, item.anserFirst, item.anserSecond, item.anserThird, item.anserFour,item.anser,item.id,index]
-		listQuestion.append(listTemp)
-	# print(listQuestion)
-	# print(type(listQuestion))
 	listComment = list(Comment.objects.order_by('-id')[:10].select_related('idUser'))
 	print(listComment)
-	return render(request, 'main.html',{'listQuestion' :listQuestion, 'listComment':listComment})
-
+	return render(request, 'main.html',{'listQuestion' :listQuestion2, 'listComment':listComment})
 	if request.method == "POST":
-		return render(request, 'main.html',{'listQuestion' :listQuestion})
+		return render(request, 'main.html',{'listQuestion' :listQuestion2})
 
 @login_required()
 def examp(request):

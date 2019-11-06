@@ -84,7 +84,7 @@ DATABASES = {
         'HOST' : 'localhost',
         'USER' : 'sa',
         'PASSWORD' : 'Anhkuteo12345',
-        'NAME' : 'quiz_A1',
+        'NAME' : 'quiz_A2',
         'OPTIONS': {
             # 'driver' : 'SQL Server Native Client 11.0',
             'driver' : 'ODBC Driver 17 for SQL Server',
