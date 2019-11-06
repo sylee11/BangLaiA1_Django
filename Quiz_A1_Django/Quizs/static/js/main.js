@@ -8,13 +8,13 @@ $(document).ready(function() {
 	var endExamp = now + 1000*15*60
 	// function coutDown(){
 	// document.getElementsByClassName('mainQuestion')[0].style.display = 'block'
-	$('.0').css('display','block')
+	$('.1').css('display','block')
 	$('.btnPrev').click(function(){
 		var checkQuesionNum = $('#inputIndex').val()
-		if(checkQuesionNum == 0){
-			$('.9').css('display','block')
-			$('.0').css('display','none')
-			$('#inputIndex').val(9)
+		if(checkQuesionNum == 1){
+			$('.10').css('display','block')
+			$('.1').css('display','none')
+			$('#inputIndex').val(10)
 
 		}
 		else{
@@ -37,15 +37,17 @@ $(document).ready(function() {
 
 	})
 
+
+
 	$('.btnNext').click(function(){
 		var checkQuesionNum = $('#inputIndex').val()
-		if(checkQuesionNum == 9){
-			$('.9').css('display','none')
-			$('.0').css('display','block')
+		if(checkQuesionNum == 10){
+			$('.10').css('display','none')
+			$('.1').css('display','block')
 			// $('#btnNum0').css('background-color','green')
 			// var tempClass3 = '#inputValueQuestion'+checkQuesionNum
 			// $(tempClass3).val($('#valueAnser').val())
-			$('#inputIndex').val(0)
+			$('#inputIndex').val(1)
 
 		}
 		else{

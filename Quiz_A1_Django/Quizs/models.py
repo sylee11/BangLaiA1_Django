@@ -70,18 +70,19 @@ class Question(models.Model):
 
 class ImageQuestion(models.Model):
 	link = models.CharField(max_length=255)
-	idQuestion = models.OneToOneField(Question,on_delete=models.CASCADE)
+	idQuestion = models.ForeignKey(Question,on_delete=models.CASCADE)
 		
 	def __str__(self):
 		return self.link
 
 class Soccer(models.Model):
 	soccer = models.DecimalField(max_digits=10,decimal_places=0)
-	idUser = models.OneToOneField(MyUser,on_delete=models.CASCADE)
+	idUser = models.ForeignKey(MyUser,on_delete=models.CASCADE)
 	time = models.DecimalField(max_digits=10,decimal_places=0,null = True)
 		
 
 class Comment(models.Model):
 	idUser = models.ForeignKey(MyUser,on_delete=models.CASCADE)
 	comment = models.CharField(max_length=255)
-	rating = models.DecimalField(max_digits=10, decimal_places=0)	
+	rating = models.DecimalField(max_digits=10, decimal_places=0)
+	time = models.DateField()	
