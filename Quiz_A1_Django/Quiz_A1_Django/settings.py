@@ -25,7 +25,7 @@ SECRET_KEY = '0#tw@kcd-vz1718k%u*2zah4^%^+axl7##+8ki03n%a9atick7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.108','127.0.0.1']
+ALLOWED_HOSTS = ['192.168.0.108','127.0.0.1','localhost','thilaixeonline.vn']
 
 
 # Application definition
@@ -150,3 +150,8 @@ STATICFILES_DIRS = [
 
 AUTH_USER_MODEL = 'Quizs.MyUser'
 LOGIN_URL = 'login'
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True

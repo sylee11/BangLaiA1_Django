@@ -4,6 +4,7 @@ from . forms import MyUserForm, Question, ImageQuestion, Comment
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+
 def home(request):
 	formLogin = MyUserForm
 	return render(request, 'home.html',{'form': formLogin})
