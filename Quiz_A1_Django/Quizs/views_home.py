@@ -31,6 +31,7 @@ def main(request):
 	# listQuestionRaw = Question.objects.select_related('idQuestion').all()
 	print(list(listQuestionRaw))
 	listQuestion2 = list(listQuestionRaw)
+	request.session['listx'] = listQuestion2
 	listComment = list(Comment.objects.order_by('-id')[:10].select_related('idUser'))
 	print(listComment)
 	return render(request, 'main.html',{'listQuestion' :listQuestion2, 'listComment':listComment})
@@ -39,5 +40,12 @@ def main(request):
 
 @login_required()
 def examp(request):
-
+	print(request.session['listx'])
+	aaa = request.POST
+	for x in request.POST:
+		if 'valueAnser' in x:
+			a = request.POST.getlist(x)
+	xxx = request.POST.getlist('valueAnser1[]')
+	print(aaa)
+	return HttpResponse(xxx)
 	return render(request, 'exam.html',{})
