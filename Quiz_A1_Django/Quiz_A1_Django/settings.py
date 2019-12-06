@@ -25,7 +25,7 @@ SECRET_KEY = '0#tw@kcd-vz1718k%u*2zah4^%^+axl7##+8ki03n%a9atick7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.108','127.0.0.1']
+ALLOWED_HOSTS = ['192.168.0.108','127.0.0.1','localhost','thilaixeonline.vn']
 
 
 # Application definition
@@ -77,35 +77,35 @@ WSGI_APPLICATION = 'Quiz_A1_Django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE' : 'sql_server.pyodbc',
-#         # 'HOST': 'ADMIN\SQLEXPRESS',
-#         'HOST' : 'localhost',
-#         'USER' : 'sa',
-#         'PASSWORD' : 'Anhkuteo12345',
-#         'NAME' : 'quiz_A2',
-#         'OPTIONS': {
-#             # 'driver' : 'SQL Server Native Client 11.0',
-#             'driver' : 'ODBC Driver 17 for SQL Server',
-#         }
-#     }
-# }
-
-
 DATABASES = {
     'default': {
         'ENGINE' : 'sql_server.pyodbc',
-        'HOST': 'ADMIN\SQLEXPRESS',
-        # 'HOST' : 'localhost',
+        # 'HOST': 'ADMIN\SQLEXPRESS',
+        'HOST' : 'localhost',
         'USER' : 'sa',
         'PASSWORD' : 'Anhkuteo12345',
         'NAME' : 'quiz_A2',
         'OPTIONS': {
-            'driver' : 'SQL Server Native Client 11.0',
+            # 'driver' : 'SQL Server Native Client 11.0',
+            'driver' : 'ODBC Driver 17 for SQL Server',
         }
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE' : 'sql_server.pyodbc',
+#         'HOST': 'ADMIN\SQLEXPRESS',
+#         # 'HOST' : 'localhost',
+#         'USER' : 'sa',
+#         'PASSWORD' : 'Anhkuteo12345',
+#         'NAME' : 'quiz_A2',
+#         'OPTIONS': {
+#             'driver' : 'SQL Server Native Client 11.0',
+#         }
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -150,3 +150,7 @@ STATICFILES_DIRS = [
 
 AUTH_USER_MODEL = 'Quizs.MyUser'
 LOGIN_URL = 'login'
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
