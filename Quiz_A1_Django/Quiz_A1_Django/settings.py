@@ -25,7 +25,7 @@ SECRET_KEY = '0#tw@kcd-vz1718k%u*2zah4^%^+axl7##+8ki03n%a9atick7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.108','127.0.0.1','localhost','thilaixeonline.vn']
+ALLOWED_HOSTS = ['192.168.1.246','127.0.0.1','localhost','thilaixeonline.com']
 
 
 # Application definition
@@ -51,7 +51,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Quiz_A1_Django.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
