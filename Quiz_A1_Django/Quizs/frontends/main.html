@@ -15,10 +15,10 @@
 				</div>
 				<div class="border border-primary rounded timeCount">
 					Thời gian còn lại <span class="spanCountDown"></span>
-				</div>	
+				</div>
 				<div class="border border-primary rounded timeCount text-center">
 					<button class="btn btn-info" id="btnSubmit" type="submit" form="formMain">Submit</button>
-				</div>	
+				</div>
 			</div>
 			<form method="POST" action="{% url 'examp'%}" id="formMain" class="col-8 border border-primary rounded">
 			{% csrf_token %}
@@ -47,44 +47,44 @@
 			{% endfor %}
 			</form>		
 		</div>
-		<div class="border border-info rounded comment">
-			<span>10 Bình luận hàng đầu</span><br>
-			<span>Sắp xếp theo:</span> 
-			<input type="radio" name="new" >  <label for="new">Mới Nhất</label>  
-			<input type="radio" name="new">  <label for="new">Nhiều Like</label> 
-			<div id="contentComment"> 
-			{% for comment in listComment %}
-				<div class="row" >
-					<div class="col-1">
-						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmYxBq3_IN4hEMn0u6Ql_BAPdCUUGYT_uC9Q0kUYQ4o7BYGLMx&s" alt="avatar"  style="width: 50px; height: 50px; border-radius:50%; ">
-					</div>
-					<div class="col-11">
-						<span>{{ comment.idUser.name }}</span><br>
-						<span>{{ comment.comment }}</span><br>
-						<span style="font-size: 12px; font-weight:inherit;color:#138496  ">{{ comment.time }}</span><a style="font-size: 12px;margin-left: 20px; " href="#">like</a> <i style="color: blue" class="fas fa-thumbs-up"></i>
-					</div>
-					
-				</div>
-
-			{% endfor%}
-			</div>
-			<div class="row">
-				<div class="col-1">
-					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmYxBq3_IN4hEMn0u6Ql_BAPdCUUGYT_uC9Q0kUYQ4o7BYGLMx&s" alt="avatar"  style="width: 50px; height: 50px; border-radius:50%; ">
-				</div>
-				<div class="col-11">
-					<form class="form" id="formComment" method="POST" action="">
-						{% csrf_token %}
-						<input type="hidden" name="inputHiddenUser" value="{{ request.user.id}}" id="inputHiddenUser">
-						<textarea class="form-control" id="textareaComment"></textarea>
-					</form>
-					<button class="btn btn-outline-success" type="button" style="margin-top: 10px;" id="btnSendComment">Send Comment</button>
-
-				</div>
-				
-			</div>
-		</div>
-	</div>
+{#		<div class="border border-info rounded comment">#}
+{#			<span>10 Bình luận hàng đầu</span><br>#}
+{#			<span>Sắp xếp theo:</span> #}
+{#			<input type="radio" name="new" >  <label for="new">Mới Nhất</label>  #}
+{#			<input type="radio" name="new">  <label for="new">Nhiều Like</label> #}
+{#			<div id="contentComment"> #}
+{#			{% for comment in listComment %}#}
+{#				<div class="row" >#}
+{#					<div class="col-1">#}
+{#						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmYxBq3_IN4hEMn0u6Ql_BAPdCUUGYT_uC9Q0kUYQ4o7BYGLMx&s" alt="avatar"  style="width: 50px; height: 50px; border-radius:50%; ">#}
+{#					</div>#}
+{#					<div class="col-11">#}
+{#						<span>{{ comment.idUser.name }}</span><br>#}
+{#						<span>{{ comment.comment }}</span><br>#}
+{#						<span style="font-size: 12px; font-weight:inherit;color:#138496  ">{{ comment.time }}</span><a style="font-size: 12px;margin-left: 20px; " href="#">like</a> <i style="color: blue" class="fas fa-thumbs-up"></i>#}
+{#					</div>#}
+{#					#}
+{#				</div>#}
+{##}
+{#			{% endfor%}#}
+{#			</div>#}
+{#			<div class="row">#}
+{#				<div class="col-1">#}
+{#					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmYxBq3_IN4hEMn0u6Ql_BAPdCUUGYT_uC9Q0kUYQ4o7BYGLMx&s" alt="avatar"  style="width: 50px; height: 50px; border-radius:50%; ">#}
+{#				</div>#}
+{#				<div class="col-11">#}
+{#					<form class="form" id="formComment" method="POST" action="">#}
+{#						{% csrf_token %}#}
+{#						<input type="hidden" name="inputHiddenUser" value="{{ request.user.id}}" id="inputHiddenUser">#}
+{#						<textarea class="form-control" id="textareaComment"></textarea>#}
+{#					</form>#}
+{#					<button class="btn btn-outline-success" type="button" style="margin-top: 10px;" id="btnSendComment">Send Comment</button>#}
+{##}
+{#				</div>#}
+{#				#}
+{#			</div>#}
+{#		</div>#}
+{#	</div>#}
 	<script type="text/javascript" src="{% static 'js/main.js'%}" async></script>
 
 {% endblock %}

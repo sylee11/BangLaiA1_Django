@@ -5,7 +5,7 @@ $(document).ready(function() {
 	// }
 	var now = new Date().getTime();
 	// var now = 0;
-	var endExamp = now + 1000*15*60
+	var endExamp = now + 1000*1*60
 	// function coutDown(){
 	// document.getElementsByClassName('mainQuestion')[0].style.display = 'block'
 	$('.1').css('display','block')
@@ -95,7 +95,7 @@ $(document).ready(function() {
 				clearInterval(x)
 				$(".spanCountDown").text("Hết giờ")
 				alert("Đã hết giờ làm bài !!")		
-
+				$('#btnSubmit').click()
 			}
 		},1000)
 
