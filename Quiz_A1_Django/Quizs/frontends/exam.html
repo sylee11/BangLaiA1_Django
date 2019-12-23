@@ -9,17 +9,20 @@
 				<div class="listQuestion border border-primary rounded">
 					<span >Câu hỏi</span>
 					<div class="row text-center">
+                        {% for listQ in listQuestionOld %}
+							<div class="col-2 btnNum"> <button id="btnNum{{forloop.counter}}" class="btn btn-outline" {% if listQ.8 == 'true' %} style="background-color: #4caf50;color: white" {% else %} style = "background-color: #d9534f;color: white" {% endif %}><span >{{forloop.counter}} </span></button></div>
+						{% endfor %}
 					</div>	
 				</div>
 				<div class="border border-primary rounded timeCount">
 					Thời gian làm bài: <span class="spanCountDown"></span><br>
-					Số câu đúng: <span class="spanCountDown"></span><br>
-					Số câu sai: <span class="spanCountDown"></span><br>
-					Kết quả: <span class="spanCountDown"></span><br>
-				</div>	
+					Số câu đúng: <span class="spanCountDown"> {{ numQuestionTrue }}</span><br>
+					Số câu sai: <span class="spanCountDown"> {{ numQuestionFalse }}</span><br>
+					Kết quả: <span class="spanCountDown">{{ numQuestionTrue }} / 20 => {{ kqFinal }} </span><br>
+				</div>
 				<div class="border border-primary rounded timeCount text-center">
-					<button class="btn btn-info" id="" type="button" form="">Home</button>
-					<button class="btn btn-info" id="" type="button" form="">Examp agian</button>
+					<a class="btn btn-info" id="" type="button" href="/" >Home</a>
+					<a class="btn btn-info" id="" type="button" href="/quiz">Examp agian</a>
 				</div>
 				<div class="border border-info rounded comment2">
 					<span>10 Bình luận hàng đầu</span><br>
@@ -29,10 +32,10 @@
 					<div id="contentComment"> 
 					{% for comment in listComment %}
 						<div class="row" >
-							<div class="col-3">
+							<div class="col-2">
 								<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmYxBq3_IN4hEMn0u6Ql_BAPdCUUGYT_uC9Q0kUYQ4o7BYGLMx&s" alt="avatar"  style="width: 50px; height: 50px; border-radius:50%; ">
 							</div>
-							<div class="col-9">
+							<div class="col-10">
 								<span>{{ comment.idUser.name }}</span><br>
 								<span>{{ comment.comment }}</span><br>
 								<span style="font-size: 12px; font-weight:inherit;color:#138496  ">{{ comment.time }}</span><a style="font-size: 12px;margin-left: 20px; " href="#">like</a> <i style="color: blue" class="fas fa-thumbs-up"></i>
@@ -43,10 +46,10 @@
 					{% endfor%}
 					</div>
 					<div class="row">
-						<div class="col-1">
+						<div class="col-2">
 							<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmYxBq3_IN4hEMn0u6Ql_BAPdCUUGYT_uC9Q0kUYQ4o7BYGLMx&s" alt="avatar"  style="width: 50px; height: 50px; border-radius:50%; ">
 						</div>
-						<div class="col-11">
+						<div class="col-10">
 							<form class="form" id="formComment" method="POST" action="">
 								{% csrf_token %}
 								<input type="hidden" name="inputHiddenUser" value="{{ request.user.id}}" id="inputHiddenUser">
@@ -62,30 +65,33 @@
 
 			<form method="POST" action="{% url 'examp'%}" id="formMain" class="col-8 border border-primary rounded">
 			{% csrf_token %}
-			{% for listQ in listQuestion %}
-				<div class="mainQuestion {{forloop.counter}} ">
-					<input type="" name="" value="{{ listQ.id }}" id="inputIdQuestion" class="d-none">
+			{% for listQ in listQuestionOld %}
+                <span style="color: #138496; font-weight: bold;">Câu hỏi :{{forloop.counter}} </span>  <br>
+				<div class=" {{forloop.counter}}  " style="margin-bottom: 10px">
+					<input type="" name="" value="{{ listQ.0 }}" id="inputIdQuestion" class="d-none">
 					<input type="" name="" value="{{forloop.counter}}" id="inputIndex" class="d-none">
 					<input type="" name="" value="" id="inputValueQuestion{{listQ.7}}" class="d-none">
-					<span style="color: #138496; font-weight: bold;">Câu hỏi :{{forloop.counter}} </span>  <br>
-					<span class="font-weight-bold">{{ listQ.content }}</span><br>
-					{% if listQ.link is not None %}
-						<img src="/statics/{{ listQ.link }}" alt="imgQuestion">
+					<span class="font-weight-bold" style="margin-left: 10px">{{ listQ.1 }}</span><br>
+					{% if listQ.7 != 'None' %}
+						<div class="text-center">
+                            <img src="/statics/{{ listQ.7 }}" alt="imgQuestion">
+                        </div>
 					{% endif%}
 					
-					<div class="listAnser d-block">
-						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="1">  {{ listQ.anserFirst }} <br>
-						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="2">  {{ listQ.anserSecond }} <br>
-						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="3">  {{ listQ.anserThird }}
+					<div class="listAnser d-block" style="margin-left: 20px;">
+						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="1" disabled {% if '1' in listQ.2 %} checked  > <span style="color: #e67e22">  {{ listQ.3 }}</span> <br> {% else %}  > <span>  {{ listQ.3 }}</span> <br> {% endif %}
+						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="2" disabled {% if '2' in listQ.2 %} checked  > <span style="color: #e67e22">  {{ listQ.3 }}</span> <br> {% else %}  > <span>  {{ listQ.3 }}</span> <br> {% endif %}
+						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="3" disabled {% if '3' in listQ.2 %} checked  > <span style="color: #e67e22">  {{ listQ.3 }}</span> <br> {% else %}  > <span>  {{ listQ.3 }}</span> <br> {% endif %}
+						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="4" disabled {% if '4' in listQ.2 %} checked  > <span style="color: #e67e22">  {{ listQ.3 }}</span> <br> {% else %}  > <span>  {{ listQ.3 }}</span> <br> {% endif %}
 					</div>
-					<div class="d-flex justify-content-between buttonNextPrev">
-						<button class="btn btn-info btnPrev" type="button">Prev Question</button>
-						<button class="btn btn-info btnNext" type="button">Next Question</button>
-					</div>
+{#					<div class="d-flex justify-content-between buttonNextPrev">#}
+{#						<button class="btn btn-info btnPrev" type="button">Prev Question</button>#}
+{#						<button class="btn btn-info btnNext" type="button">Next Question</button>#}
+{#					</div>#}
 				</div>
 					
 			{% endfor %}
-			</form>		
+			</form>
 			</div>
 			<div class="col-9">
 				
