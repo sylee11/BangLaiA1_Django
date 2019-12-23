@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
+from pyodbc import Connection
+
 from . forms import MyUserForm, Question, ImageQuestion, Comment
 from django.contrib.auth.decorators import login_required
 import docx2txt
 import re
+from django.db import connection
 # Create your views here.
 
 
@@ -84,10 +87,32 @@ def examp(request):
 def importdb(request):
 	result = docx2txt.process("D:\Câu 1.docx")
 	list = result.split('::')
-	# print(list[1])
-	a = set(list[2].split('\n'))
-	a.remove("")
-	print(a)
+	for x in list:
+		if x == '':
+			continue
+		x = x.replace('\n','')
+		print(x)
+		ques = x.split('1-')[0]
+		# print(x.split('?')[1])
+		print(ques)
+		an1 = x.split('1-')[1].split('2-')[0]
+		an2 = x.split('1-')[1].split('2-')[1].split('3-')[0]
+		if '4-' in x:
+			an3 = x.split('1-')[1].split('2-')[1].split('3-')[1].split('4-')[0]
+			an4 = x.split('1-')[1].split('2-')[1].split('3-')[1].split('4-')[1]
+		else:
+			an3 = x.split('1-')[1].split('2-')[1].split('3-')[0]
+			an4 = ''
+		print(an1)
+		print(an2)
+		print(an3)
+		print(an4)
+		with connection.cursor() as cursor:
+			cursor.execute("Insert into dbo.Quizs_question (content, anserFirst, anserSecond, anserThird, anserFour, anser) values (%s,%s,%s,%s,%s, '1')",[ques,an1,an2,an3,an4])
+	# print(list[1].replace('\n',''))
+	# a = set(list[1].split('\n'))
+	# a.remove("")
+	# print(a)
 	# aa = re.findall(r'\S{1:}', list[1])
 	# print(aa)
 	return HttpResponse("hehe")
