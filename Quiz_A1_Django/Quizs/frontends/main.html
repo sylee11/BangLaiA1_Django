@@ -9,7 +9,7 @@
 					<span >Câu hỏi</span>
 					<div class="row text-center">
 						{% for listQ in listQuestion %}
-							<div class="col-2 btnNum"> <button id="btnNum{{forloop.counter}}" class="btn btn-outline-info" value="{{listQ.7}}">{{forloop.counter}}</button></div>
+							<div class="col-2 btnNum"> <button id="btnNum{{forloop.counter}}" class="btn btn-outline-info" value="{{forloop.counter}}">{{forloop.counter}}</button></div>
 						{% endfor %}
 					</div>	
 				</div>
@@ -17,7 +17,7 @@
 					Thời gian còn lại <span class="spanCountDown"></span>
 				</div>
 				<div class="border border-primary rounded timeCount text-center">
-					<button class="btn btn-info" id="btnSubmit" type="submit" form="formMain">Submit</button>
+					<button class="btn btn-info" id="btnSubmit" type="submit" form="formMain" onclick="return confirm('Bạn có muốn nộp bài??');">Submit</button>
 				</div>
 			</div>
 			<form method="POST" action="{% url 'examp'%}" id="formMain" class="col-8 border border-primary rounded">
@@ -36,7 +36,12 @@
 					<div class="listAnser d-block">
 						<input type="checkbox" name="valueAnser{{ listQ.id }}[]" id="valueAnser{{ listQ.6}}" value="1">  {{ listQ.anserFirst }} <br>
 						<input type="checkbox" name="valueAnser{{ listQ.id }}[]" id="valueAnser{{ listQ.6}}" value="2">  {{ listQ.anserSecond }} <br>
-						<input type="checkbox" name="valueAnser{{ listQ.id }}[]" id="valueAnser{{ listQ.6}}" value="3">  {{ listQ.anserThird }}
+                        {% if  listQ.anserThird != '' %}
+						    <input type="checkbox" name="valueAnser{{ listQ.id }}[]" id="valueAnser{{ listQ.6}}" value="3">  {{ listQ.anserThird }}
+						{% endif %}
+                        {% if  listQ.anserFour != '' %}
+                            <input type="checkbox" name="valueAnser{{ listQ.id }}[]" id="valueAnser{{ listQ.6}}" value="4">  {{ listQ.anserFour }}
+                        {% endif %}
 					</div>
 					<div class="d-flex justify-content-between buttonNextPrev">
 						<button class="btn btn-info btnPrev" type="button">Prev Question</button>
@@ -47,6 +52,7 @@
 			{% endfor %}
 			</form>		
 		</div>
+        <input id="inputOldNumber" class="d-none">
 {#		<div class="border border-info rounded comment">#}
 {#			<span>10 Bình luận hàng đầu</span><br>#}
 {#			<span>Sắp xếp theo:</span> #}

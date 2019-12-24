@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 import docx2txt
 import re
 from django.db import connection
+from django.db import transaction
 # Create your views here.
 
 
@@ -83,7 +84,7 @@ def examp(request):
 	return render(request, 'exam.html',{'listComment':listComment, 'listQuestionOld':listQuestionOld,'numQuestionTrue' : numQuestionTrue, 'numQuestionFalse':numQuestionFalse,'kqFinal':kqFinal })
 
 
-
+@transaction.atomic
 def importdb(request):
 	result = docx2txt.process("D:\Câu 1.docx")
 	list = result.split('::')
@@ -96,12 +97,17 @@ def importdb(request):
 		# print(x.split('?')[1])
 		print(ques)
 		an1 = x.split('1-')[1].split('2-')[0]
-		an2 = x.split('1-')[1].split('2-')[1].split('3-')[0]
-		if '4-' in x:
-			an3 = x.split('1-')[1].split('2-')[1].split('3-')[1].split('4-')[0]
-			an4 = x.split('1-')[1].split('2-')[1].split('3-')[1].split('4-')[1]
+		if '3-' in x:
+			an2 = x.split('1-')[1].split('2-')[1].split('3-')[0]
+			if '4-' in x:
+				an3 = x.split('1-')[1].split('2-')[1].split('3-')[1].split('4-')[0]
+				an4 = x.split('1-')[1].split('2-')[1].split('3-')[1].split('4-')[1]
+			else:
+				an3 = x.split('1-')[1].split('2-')[1].split('3-')[1]
+				an4 = ''
 		else:
-			an3 = x.split('1-')[1].split('2-')[1].split('3-')[0]
+			an2 = an1 = x.split('1-')[1].split('2-')[1]
+			an3 = ''
 			an4 = ''
 		print(an1)
 		print(an2)

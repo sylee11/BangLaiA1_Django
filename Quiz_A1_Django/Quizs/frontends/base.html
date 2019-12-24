@@ -15,12 +15,13 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css"
           integrity="sha256-bLNUHzSMEvxBhoysBE7EXYlIrmo7+n7F4oJra1IgOaM=" crossorigin="anonymous"/>
+    <link rel="shortcut icon" href="{% static 'images/logo2.png' %}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg ">
     <img class="imgLogo" src="{% static 'images/logo2.png' %}">
-    <p class="align-middle font-weight-bold" style="color: #4481FC; ;">A1 ONLINE</p>
+    <p class="align-middle font-weight-bold" style="color: #4481FC; margin-top: 15px;">A1 ONLINE</p>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDrowp"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -60,7 +61,7 @@
 </nav>
 {% block content %}
 {% endblock %}
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center" id="footer">
     <p class="text-center">&copy; 2019 lololo.com
     <p>
     <div class="footer">

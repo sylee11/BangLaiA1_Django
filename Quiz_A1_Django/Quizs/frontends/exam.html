@@ -80,9 +80,14 @@
 					
 					<div class="listAnser d-block" style="margin-left: 20px;">
 						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="1" disabled {% if '1' in listQ.2 %} checked  > <span style="color: #e67e22">  {{ listQ.3 }}</span> <br> {% else %}  > <span>  {{ listQ.3 }}</span> <br> {% endif %}
-						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="2" disabled {% if '2' in listQ.2 %} checked  > <span style="color: #e67e22">  {{ listQ.3 }}</span> <br> {% else %}  > <span>  {{ listQ.3 }}</span> <br> {% endif %}
-						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="3" disabled {% if '3' in listQ.2 %} checked  > <span style="color: #e67e22">  {{ listQ.3 }}</span> <br> {% else %}  > <span>  {{ listQ.3 }}</span> <br> {% endif %}
-						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="4" disabled {% if '4' in listQ.2 %} checked  > <span style="color: #e67e22">  {{ listQ.3 }}</span> <br> {% else %}  > <span>  {{ listQ.3 }}</span> <br> {% endif %}
+						<input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="2" disabled {% if '2' in listQ.2 %} checked  > <span style="color: #e67e22">  {{ listQ.3 }}</span> <br> {% else %}  > <span>  {{ listQ.4 }}</span> <br> {% endif %}
+						{% if listQ.5 != '' %}
+                            <input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="3" disabled {% if '3' in listQ.2 %} checked  > <span style="color: #e67e22">  {{ listQ.3 }}</span> <br> {% else %}  > <span>  {{ listQ.5 }}</span> <br> {% endif %}
+                        {% endif %}
+						{% if listQ.6 != '' %}
+                            <input type="checkbox" name="valueAnser{{ listQ.6}}[]" id="valueAnser{{ listQ.6}}" value="4" disabled {% if '4' in listQ.2 %} checked  > <span style="color: #e67e22">  {{ listQ.3 }}</span> <br> {% else %}  > <span>  {{ listQ.6 }}</span> <br> {% endif %}
+                        {% endif %}
+
 					</div>
 {#					<div class="d-flex justify-content-between buttonNextPrev">#}
 {#						<button class="btn btn-info btnPrev" type="button">Prev Question</button>#}

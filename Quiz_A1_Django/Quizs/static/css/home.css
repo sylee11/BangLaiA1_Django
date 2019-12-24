@@ -19,6 +19,9 @@ body{
 	vertical-align: middle;
 
 }
+#footer{
+	margin-top: 100px;
+}
 .footer{
 	overflow: hidden;
 	margin-left: 20px;
