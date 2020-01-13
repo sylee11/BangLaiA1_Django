@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container center" >
+    <form method="post" action="{% url 'renewpass'  token  %}"  class="">
+        {% csrf_token %}
+{#        <input class="d-none" value="{{ token }}">#}
+        <center>Nhập mật khẩu mới : {{ formRenew.passOld }} </center> <br>
+        <center>Nhập lại mật khẩu mới : {{ formRenew.passNew }} </center> <br>
+        <center><button type="submit" class="btn btn-success">Lấy lại mật khẩu</button></center>
+        {% if message %}
+            <span style="color: red"> {{ message }}</span>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,124 @@
+body{
+	font-family: 'Prata', serif;
+}
+.imgLogo{
+	width: 50px;
+	height: 50px;
+	margin-left: 20px;
+	margin-right: 10px;
+}
+.imgBackgroud{
+	width: 85%;
+	height: 85%;
+}
+.title_home{
+	font-size: 35px;
+	font-weight: bold;
+}
+.body_content{
+	vertical-align: middle;
+
+}
+#footer{
+	/*margin-top: 100px;*/
+	position: relative;
+	height: 100px;
+	bottom: -100px;
+}
+.footer{
+	overflow: hidden;
+	margin-left: 20px;
+}
+.footer i {
+	margin-right: 15px;
+/*	margin-bottom: 30px;
+*/}
+.inputEmail  {
+	border: none;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 20px;
+	width: 60%;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+
+.inputEmail:focus {
+    outline: none;
+/*	border-bottom: 1px solid #ddd;
+	margin-bottom: 20px;
+	width: 80%;
+	margin-left: 15px;
+	margin-top: 15px;*/
+}
+.btnLogin {
+	border: none;
+	margin-bottom: 10px;
+	width: 50%;
+	margin-left: 25%;
+	background-color: #F783AC;
+	text-align: center;
+}
+.btnLogin:hover {
+	border: none;
+	width: 50%;
+	margin-left: 25%;
+	background-color: #F783AC;
+	text-align: center;
+	opacity: 0.6;
+}
+
+.listQuestion{
+	padding: 20px;
+}
+.timeCount{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 20px;
+}
+.mainQuestion{
+	margin-bottom: 20px;
+	padding: 20px;
+	display: none;
+}
+.mainQuestion input{
+	margin-top: 10px;
+	margin-left: 25px;
+}
+.mainQuestion img{
+	margin-left: 10%;
+	width: 80%;
+	height: 250px;
+}
+
+.buttonNextPrev{
+	margin-top: 20px;
+}
+
+.comment{
+	padding: 20px;
+	width: 60%;
+	margin-top: 50px;
+	margin-left: 20%;
+	margin-bottom: 100px;
+}
+.comment2{
+	padding: 20px;
+	width: 100%;
+	margin-top: 50px;
+	margin-left: 0%;
+	margin-bottom: 100px;
+}
+
+
+.btnNum{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.btnNum2:focus{
+	background-color: green;
+	color: green;
+}
+
+.emailResetPass{
+	border-radius: 1px;
+}

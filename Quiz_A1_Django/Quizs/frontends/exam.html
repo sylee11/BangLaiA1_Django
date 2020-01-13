@@ -5,12 +5,12 @@
 		<h3 class="text-center"> KẾT QUẢ THI</h3>
 		<div class="row">
 			<div class="row" style="width: 90%; margin-left: 5%;">
-			<div class="col-4">
+			<div class="col-lg-4 col-xs-12">
 				<div class="listQuestion border border-primary rounded">
 					<span >Câu hỏi</span>
 					<div class="row text-center">
                         {% for listQ in listQuestionOld %}
-							<div class="col-2 btnNum"> <button id="btnNum{{forloop.counter}}" class="btn btn-outline" {% if listQ.8 == 'true' %} style="background-color: #4caf50;color: white" {% else %} style = "background-color: #d9534f;color: white" {% endif %}><span >{{forloop.counter}} </span></button></div>
+							<div class="col-3 btnNum"> <button id="btnNum{{forloop.counter}}"  class="btn btn-outline" {% if listQ.8 == 'true' %} style="background-color: #4caf50;color: white;width: 92%; margin-left: 4%" {% else %} style = "background-color: #d9534f;color: white;width: 92%; margin-left: 4%" {% endif %}><span >{{forloop.counter}} </span></button></div>
 						{% endfor %}
 					</div>	
 				</div>
@@ -63,7 +63,7 @@
 				</div>	
 			</div>
 
-			<form method="POST" action="{% url 'examp'%}" id="formMain" class="col-8 border border-primary rounded">
+			<form method="POST" action="{% url 'examp'%}" id="formMain" class="col-lg-8 col-xs-12 border border-primary rounded">
 			{% csrf_token %}
 			{% for listQ in listQuestionOld %}
                 <span style="color: #138496; font-weight: bold;">Câu hỏi :{{forloop.counter}} </span>  <br>

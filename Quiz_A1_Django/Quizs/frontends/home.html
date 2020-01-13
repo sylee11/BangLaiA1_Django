@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-7 ">
-                <img class="imgBackgroud" src="{% static 'images/background4.jpg' %}">
-            </div>
-            <div class="col-5 d-block  body_content ">
-                <div class="title_home">THI ONLINE </br> BẰNG LÁI XE A1</div>
-                <div>lorem ..</div>
-                <a type="button" class="btn btn-info" href="{% url 'main' %}" id="btnStart">Start Now</a>
-            </div>
+    <div class="row">
+        <div class="col-7 ">
+            <img class="imgBackgroud" src="{% static 'images/background4.jpg' %}">
+        </div>
+        <div class="col-5 d-block  body_content " >
+            <div class="title_home">THI ONLINE </br> BẰNG LÁI XE A1</div>
+            <div class="home_ccc" style="margin: 20px 0 40px 0">Phần mềm lấy từ bộ đề thi sát hạch lý thuyết lái xe mô tô hạng A1 năm 2020  giống đề thi 100%.<br><br> Áp dụng cho tất cả sân thi sát hạch trên toàn quốc.<br><br>
+Phần mềm tương ứng với tài liệu 150 câu hỏi luật giao thông đường bộ dùng cho học viên thi bằng lái xe máy A1.</div>
+            <a  type="button" class="btn btn-info" href="{% url 'main' %}" id="btnStart">Start Now</a>
         </div>
     </div>
 {% endblock %}

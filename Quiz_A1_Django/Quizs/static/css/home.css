@@ -20,7 +20,10 @@ body{
 
 }
 #footer{
-	margin-top: 100px;
+	/*margin-top: 100px;*/
+	position: relative;
+	height: 100px;
+	bottom: -100px;
 }
 .footer{
 	overflow: hidden;
@@ -116,3 +119,10 @@ body{
 	color: green;
 }
 
+.emailResetPass{
+	border-radius: 1px;
+}
+/*.nav-link{*/
+/*	background-color: red;*/
+/*	color: #17a2b8 !important;*/
+/*}*/

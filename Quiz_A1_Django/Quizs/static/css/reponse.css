@@ -1,0 +1,24 @@
+@media (min-width: 375px) and (max-width: 700px) {
+
+    .imgBackgroud {
+        margin-left: 30px;
+        width: 150px;
+        height: 100px;
+    }
+
+    .home_ccc {
+        margin-left: -200px !important;
+    }
+
+    body {
+        font-size: 80%;
+    }
+
+    .title_home {
+        font-size: 20px;
+    }
+
+    button{
+        font-size: 85% !important;
+    }
+}

@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	// executes when HTML-Document is loaded and DOM is ready
 	// function btnClick(a){
-	// 	alert("HHH")
+		alert("HHH")
 	// }
 	var now = new Date().getTime();
 	// var now = 0;
@@ -17,7 +17,7 @@ $(document).ready(function() {
 			$('.20').css('display','block')
 			$('.1').css('display','none')
 			$('#btnNum20').css('background-color','#138496')
-			$('#btnNum20').css('color','white')			
+			$('#btnNum20').css('color','white')
 			$('#btnNum1').css('background-color','white')
 			$('#btnNum1').css('color','#138496')
 			// $('#inputIndex').val(20)
@@ -40,7 +40,7 @@ $(document).ready(function() {
 			$('#inputOldNumber').val(checkQuesionNum)
 		}
 
-	})	
+	})
 
 	function abc(a){
 		alert(a.value)
@@ -56,7 +56,7 @@ $(document).ready(function() {
 			$('.20').css('display','none')
 			$('.1').css('display','block')
 			$('#btnNum1').css('background-color','#138496')
-			$('#btnNum1').css('color','white')			
+			$('#btnNum1').css('color','white')
 			$('#btnNum20').css('background-color','white')
 			$('#btnNum20').css('color','#138496')
 			// $('#inputIndex').val(1)
@@ -97,7 +97,7 @@ $(document).ready(function() {
 			if (dis < 0){
 				clearInterval(x)
 				$(".spanCountDown").text("Hết giờ")
-				alert("Đã hết giờ làm bài !!")		
+				alert("Đã hết giờ làm bài !!")
 				$('#btnSubmit').click()
 			}
 		},1000)
@@ -116,4 +116,14 @@ $(document).ready(function() {
 		$(temOld).css('color','#138496')
 		$('#inputOldNumber').val(this.value)
 	})
+	console.log("ccc")
+	$(window).on('beforeunload', function(){
+		alert("ccc")
+      return 'Are you sure you want to leave?';
+	});
+
+	$(window).bind('beforeunload', function(){
+		alert("cc")
+		return alert("cc")
+	});
 });
