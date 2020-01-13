@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container center" >
+
+    <form method="post" action="{% url 'resetpass' %}"  class="">
+        {% csrf_token %}
+        <center>Email lấy lại mật khẩu : {{ form.email }} <button type="submit" class="btn btn-success">Lấy lại mật khẩu</button></center>
+    </form>
+    {% if message %}
+        <center><span  class="center" style="color: red"> {{ message }}</span></center>
+    {% endif %}
+</div>
+{% endblock %}
